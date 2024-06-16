@@ -75,7 +75,7 @@ export function Signup() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Password</FormLabel>
+                      <FormLabel>Name</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="tim"
