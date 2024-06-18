@@ -3,7 +3,7 @@ import { DeleteWidget } from "@/components/widget/DeleteWidget";
 import WidgetModal from "@/components/widget/WidgetModal";
 import { addressShortener } from "@/lib/addressShortener";
 import { cacheImage } from "@/lib/cacheImage";
-import { ExternalLink, Link } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import useSWR from "swr";
 
 export const Widget = () => {
