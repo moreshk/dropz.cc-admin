@@ -3,6 +3,7 @@ import { DeleteWidget } from "@/components/widget/DeleteWidget";
 import WidgetModal from "@/components/widget/WidgetModal";
 import { addressShortener } from "@/lib/addressShortener";
 import { cacheImage } from "@/lib/cacheImage";
+import { ExternalLink, Link } from "lucide-react";
 import useSWR from "swr";
 
 export const Widget = () => {
@@ -36,9 +37,7 @@ export const Widget = () => {
                 </p>
                 <p>{widget.website}</p>
               </div>
-              <div className=" border px-3 py-1 rounded-lg mt-2">
-                <p>Embedded id - {widget.id}</p>
-              </div>
+
               <div className="flex items-center justify-between p-2 w-full">
                 <div className="w-full">
                   <div className="flex gap-2 items-center">
@@ -70,6 +69,14 @@ export const Widget = () => {
                   </div>
                 </div>
               </div>
+              <a
+                href={`https://dropz.cc/e/${widget.id}`}
+                target="_blank"
+                className="hover:bg-primary hover:text-white border px-3 py-1 rounded-lg mt-2 flex gap-2 items-center"
+              >
+                <p>https://dropz.cc/e/{widget.id}</p>
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
           );
         })}
