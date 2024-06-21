@@ -23,8 +23,7 @@ export const Token = () => {
         ? (data?.tokens || []).filter((token) => {
             return (
               token.address === search ||
-              token.symbol.toLowerCase().includes(search.toLowerCase()) ||
-              search.toLowerCase().includes(token.symbol.toLowerCase())
+              token.symbol.toLowerCase().includes(search.toLowerCase())
             );
           })
         : data?.tokens || [];
