@@ -79,7 +79,9 @@ export const TokenContractAddress = ({
                 disabled={disable || field.disabled || isLoading}
                 onChange={(e) => {
                   field.onChange(e.target.value);
-                  fetchTokenMetadata();
+                  if (editing && e.target.value.length >= 40) {
+                    fetchTokenMetadata();
+                  }
                 }}
               />
               {isLoading && (
