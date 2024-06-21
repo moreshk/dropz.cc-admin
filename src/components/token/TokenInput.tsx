@@ -75,7 +75,13 @@ export const TokenDecimals = ({ isLoading }: { isLoading: boolean }) => {
         <FormItem>
           <FormLabel>Decimal</FormLabel>
           <FormControl>
-            <Input {...field} disabled={isLoading || field.disabled} />
+            <Input
+              {...field}
+              value={`${field.value}`}
+              onChange={(e) => field.onChange(+e.target.value)}
+              disabled={isLoading || field.disabled}
+              type="number"
+            />
           </FormControl>
           <FormMessage />
         </FormItem>
