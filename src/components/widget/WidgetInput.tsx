@@ -79,8 +79,7 @@ export const WidgetToken = ({
         ? (tokens || []).filter((token) => {
             return (
               token.address === search ||
-              token.symbol.toLowerCase().includes(search.toLowerCase()) ||
-              search.toLowerCase().includes(token.symbol.toLowerCase())
+              token.symbol.toLowerCase().includes(search.toLowerCase())
             );
           })
         : tokens || [];
