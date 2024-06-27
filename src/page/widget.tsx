@@ -77,6 +77,20 @@ export const Widget = () => {
                 <p>https://dropz.cc/e/{widget.id}</p>
                 <ExternalLink className="w-4 h-4" />
               </a>
+              <div>
+                <p>Blink link below</p>
+                <a
+                  href={`https://www.dial.to/?action=solana-action:https://api.dropz.cc/blink/details/${widget.id}`}
+                  target="_blank"
+                  className="hover:bg-primary hover:text-white border px-3 py-1 rounded-lg mt-2 flex gap-2 items-center"
+                >
+                  <p>
+                    https://www.dial.to/?action=solana-action:https://api.dropz.cc/blink/details/
+                    {widget.id}
+                  </p>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           );
         })}
