@@ -31,5 +31,14 @@ declare global {
     tokenId: string;
     token: CompleteToken;
   };
+  type ReferralLink = {
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    feeWalletAddress: string;
+    feePercentage: number;
+    tokenId: string;
+    token: CompleteToken;
+  };
 }
 export {};

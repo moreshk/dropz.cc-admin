@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Token } from "./page/tokens/tokens";
 import { Widget } from "./page/widget";
 import { SideBar } from "./components/layout/sidebar";
+import { Referral } from "./page/referral";
 
 export const RouterRouterDom = () => (
   <Router>
@@ -57,6 +58,14 @@ export const RouterRouterDom = () => (
           element={
             <ProtectedRoute>
               <Widget />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="referral"
+          element={
+            <ProtectedRoute>
+              <Referral />
             </ProtectedRoute>
           }
         />
