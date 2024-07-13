@@ -47,6 +47,7 @@ declare global {
     tokenId: string;
     tokens: number;
     listing: boolean;
+    token: CompleteToken;
   };
 }
 export {};
