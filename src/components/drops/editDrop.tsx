@@ -30,14 +30,14 @@ export const EditDrop = ({
   const handleSubmit = async (updatedDrop: TokenSchema) => {
     try {
       setIsLoading(true);
-      await axios.post("/drop/add", {
+      await axios.post("/drop/edit", {
         ...updatedDrop,
         id: drop.id,
         tokenId: updatedDrop.tokenId,
         tokens: updatedDrop.tokens,
       });
+      mutate("/drop/all");
       onClose();
-      mutate("/widget");
     } catch (e) {
       console.log(e);
     } finally {
@@ -47,8 +47,8 @@ export const EditDrop = ({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className={"space-y-8"}>
-        <Tokens isLoading={isLoading} />
         <WidgetToken isLoading={isLoading} tokens={tokens} />
+        <Tokens isLoading={isLoading} />
         <Button type="submit" className="w-full" disabled={isLoading}>
           Updat{isLoading ? "ing..." : "e"}
         </Button>

@@ -14,7 +14,6 @@ export const Drops = () => {
   if ((isLoading && !data) || (!token && isTokenLoading)) {
     return <div>Loading...</div>;
   }
-
   return (
     <div className="p-5">
       <div className="flex justify-between items-center">
@@ -22,28 +21,30 @@ export const Drops = () => {
         <DropsModal tokens={token?.tokens || []} />
       </div>
       {data?.drops.map((drop: Drop) => {
-        const token = drop.token;
+        const dropToken = drop.token;
         return (
           <div
             className=" border my-2 p-2 hover:bg-secondary group rounded-2xl cursor-pointer"
-            key={token.id}
+            key={dropToken.id}
           >
             <div className="flex items-center justify-between p-2 w-full">
               <div className="w-full">
                 <div className="flex gap-2 items-center">
                   <img
-                    src={cacheImage(token.imageUrl)}
+                    src={cacheImage(dropToken.imageUrl)}
                     alt="logo"
                     className="w-9 h-9 rounded-full"
                   />
                   <div>
                     <div className="flex gap-1 items-center">
-                      <div>{token.symbol}</div>
+                      <div>{dropToken.symbol}</div>
                       <p className="text-xs opacity-60 bg-secondary px-1 py-0.5 rounded-md flex justify-center items-center gap-2">
-                        {addressShortener(token.address)}
+                        {addressShortener(dropToken.address)}
                       </p>
                     </div>
-                    <p className="text-xs text-left opacity-40">{token.name}</p>
+                    <p className="text-xs text-left opacity-40">
+                      {dropToken.name}
+                    </p>
                   </div>
                 </div>
               </div>
