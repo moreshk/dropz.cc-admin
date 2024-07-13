@@ -1,3 +1,4 @@
+import { DeleteDrop } from "@/components/drops/DeleteDrop";
 import DropsModal from "@/components/drops/dropsModal";
 import { addressShortener } from "@/lib/addressShortener";
 import { cacheImage } from "@/lib/cacheImage";
@@ -20,8 +21,8 @@ export const Drops = () => {
         <p>Drops(lottery)</p>
         <DropsModal tokens={token?.tokens || []} />
       </div>
-      {data?.drops.map((drops: Drop) => {
-        const token = drops.token;
+      {data?.drops.map((drop: Drop) => {
+        const token = drop.token;
         return (
           <div
             className=" border my-2 p-2 hover:bg-secondary group rounded-2xl cursor-pointer"
@@ -48,16 +49,17 @@ export const Drops = () => {
               </div>
               <div className="group-hover:block hidden">
                 <div className="flex gap-2">
-                  <DropsModal tokens={token?.tokens || []} drop={drops} />
+                  <DropsModal tokens={token?.tokens || []} drop={drop} />
+                  <DeleteDrop drop={drop} />
                 </div>
               </div>
             </div>
             <a
-              href={`https://dropz.cc/l/${drops.id}`}
+              href={`https://dropz.cc/l/${drop.id}`}
               target="_blank"
               className="hover:bg-primary hover:text-white border px-3 py-1 rounded-lg mt-2 flex gap-2 items-center"
             >
-              <p>https://dropz.cc/l/{drops.id}</p>
+              <p>https://dropz.cc/l/{drop.id}</p>
               <ExternalLink className="w-4 h-4" />
             </a>
           </div>
