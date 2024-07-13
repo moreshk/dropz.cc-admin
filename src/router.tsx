@@ -8,6 +8,7 @@ import { Token } from "./page/tokens/tokens";
 import { Widget } from "./page/widget";
 import { SideBar } from "./components/layout/sidebar";
 import { Referral } from "./page/referral";
+import { Drops } from "./page/drops";
 
 export const RouterRouterDom = () => (
   <Router>
@@ -66,6 +67,14 @@ export const RouterRouterDom = () => (
           element={
             <ProtectedRoute>
               <Referral />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="Drops"
+          element={
+            <ProtectedRoute>
+              <Drops />
             </ProtectedRoute>
           }
         />

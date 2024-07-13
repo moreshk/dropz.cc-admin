@@ -1,6 +1,6 @@
 import { useSessionStore } from "@/stores/auth-store";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Coins, LayoutTemplate, Link as IconLink } from "lucide-react";
+import { Coins, LayoutTemplate, Link as IconLink, Droplet } from "lucide-react";
 
 export const SideBar = () => {
   const location = useLocation();
@@ -94,6 +94,12 @@ const adminLinks = [
     href: "/referral",
     title: "Referral",
     icon: IconLink,
+    visibility: true,
+  },
+  {
+    href: "/drops",
+    title: "Drops",
+    icon: Droplet,
     visibility: true,
   },
 ];

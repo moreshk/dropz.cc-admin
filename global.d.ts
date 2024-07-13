@@ -40,5 +40,13 @@ declare global {
     tokenId: string;
     token: CompleteToken;
   };
+  type Drop = {
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    tokenId: string;
+    tokens: number;
+    listing: boolean;
+  };
 }
 export {};
