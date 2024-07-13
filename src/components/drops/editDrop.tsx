@@ -34,7 +34,7 @@ export const EditDrop = ({
         ...updatedDrop,
         id: drop.id,
         tokenId: updatedDrop.tokenId,
-        tokens: updatedDrop.tokens,
+        tokens: +updatedDrop.tokens,
       });
       mutate("/drop/all");
       onClose();
