@@ -47,6 +47,7 @@ export const Drops = () => {
                     </p>
                   </div>
                 </div>
+                <p className="mt-4">Airdrop Amount- {drop.tokens}</p>
               </div>
               <div className="group-hover:block hidden">
                 <div className="flex gap-2">
