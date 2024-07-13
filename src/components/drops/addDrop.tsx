@@ -30,7 +30,7 @@ export const AddDrop = ({
       setIsLoading(true);
       await axios.post("/drop/add", {
         id: drop.tokenId,
-        tokens: drop.tokens,
+        tokens: +drop.tokens,
       });
       onClose();
       mutate("/drop/all");
