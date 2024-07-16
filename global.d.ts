@@ -48,6 +48,10 @@ declare global {
     tokens: number;
     listing: boolean;
     token: CompleteToken;
+    exhausted: boolean;
+    maxDuration: number;
+    startTime: Date;
+    winners: number;
   };
 }
 export {};

@@ -6,7 +6,13 @@ import { axios } from "@/lib/axios";
 import { mutate } from "swr";
 import { Button } from "../ui/button";
 import { WidgetToken } from "../widget/WidgetInput";
-import { Tokens } from "./dropsInput";
+import {
+  Exhausted,
+  MaxDuration,
+  StartTime,
+  Tokens,
+  Winners,
+} from "./dropsInput";
 import { tokenSchema, TokenSchema } from "./dropSchema";
 
 export const AddDrop = ({
@@ -22,6 +28,10 @@ export const AddDrop = ({
     defaultValues: {
       tokenId: "",
       tokens: "",
+      exhausted: false,
+      maxDuration: 86400,
+      startTime: new Date(),
+      winners: 11,
     },
   });
 
@@ -31,6 +41,10 @@ export const AddDrop = ({
       await axios.post("/drop/add", {
         id: drop.tokenId,
         tokens: +drop.tokens,
+        exhausted: drop.exhausted,
+        maxDuration: +drop.maxDuration,
+        startTime: drop.startTime,
+        winners: +drop.winners,
       });
       onClose();
       mutate("/drop/all");
@@ -46,6 +60,10 @@ export const AddDrop = ({
       <form onSubmit={form.handleSubmit(handleSubmit)} className={"space-y-8"}>
         <WidgetToken isLoading={isLoading} tokens={tokens} />
         <Tokens isLoading={isLoading} />
+        <MaxDuration isLoading={isLoading} />
+        <Winners isLoading={isLoading} />
+        <StartTime />
+        <Exhausted isLoading={isLoading} />
         <Button type="submit" className="w-full" disabled={isLoading}>
           Creat{isLoading ? "ing..." : "e"}
         </Button>

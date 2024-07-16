@@ -7,7 +7,13 @@ import { axios } from "@/lib/axios";
 import { mutate } from "swr";
 import { Button } from "../ui/button";
 import { WidgetToken } from "../widget/WidgetInput";
-import { Tokens } from "./dropsInput";
+import {
+  Exhausted,
+  MaxDuration,
+  StartTime,
+  Tokens,
+  Winners,
+} from "./dropsInput";
 
 export const EditDrop = ({
   onClose,
@@ -24,6 +30,10 @@ export const EditDrop = ({
     defaultValues: {
       tokenId: drop.tokenId,
       tokens: `${drop.tokens}`,
+      exhausted: drop.exhausted,
+      maxDuration: `${drop.maxDuration}`,
+      startTime: drop.startTime,
+      winners: `${drop.winners}`,
     },
   });
 
@@ -35,6 +45,10 @@ export const EditDrop = ({
         id: drop.id,
         tokenId: updatedDrop.tokenId,
         tokens: +updatedDrop.tokens,
+        exhausted: updatedDrop.exhausted,
+        maxDuration: updatedDrop.maxDuration,
+        startTime: updatedDrop.startTime,
+        winners: updatedDrop.winners,
       });
       mutate("/drop/all");
       onClose();
@@ -49,6 +63,10 @@ export const EditDrop = ({
       <form onSubmit={form.handleSubmit(handleSubmit)} className={"space-y-8"}>
         <WidgetToken isLoading={isLoading} tokens={tokens} />
         <Tokens isLoading={isLoading} />
+        <MaxDuration isLoading={isLoading} />
+        <Winners isLoading={isLoading} />
+        <StartTime />
+        <Exhausted isLoading={isLoading} />
         <Button type="submit" className="w-full" disabled={isLoading}>
           Updat{isLoading ? "ing..." : "e"}
         </Button>
