@@ -29,9 +29,9 @@ export const AddDrop = ({
       tokenId: "",
       tokens: "",
       exhausted: false,
-      maxDuration: 86400,
+      maxDuration: `86400`,
       startTime: new Date(),
-      winners: 11,
+      winners: `11`,
     },
   });
 
