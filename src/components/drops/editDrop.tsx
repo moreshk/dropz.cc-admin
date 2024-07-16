@@ -46,9 +46,9 @@ export const EditDrop = ({
         tokenId: updatedDrop.tokenId,
         tokens: +updatedDrop.tokens,
         exhausted: updatedDrop.exhausted,
-        maxDuration: updatedDrop.maxDuration,
+        maxDuration: +updatedDrop.maxDuration,
         startTime: updatedDrop.startTime,
-        winners: updatedDrop.winners,
+        winners: +updatedDrop.winners,
       });
       mutate("/drop/all");
       onClose();
