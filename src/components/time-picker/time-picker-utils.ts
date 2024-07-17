@@ -139,13 +139,15 @@ export function setDateByType(
 export function getDateByType(date: Date, type: TimePickerType) {
   switch (type) {
     case "minutes":
-      return getValidMinuteOrSecond(String(date.getMinutes()));
+      return getValidMinuteOrSecond(String(new Date(date).getMinutes()));
     case "seconds":
-      return getValidMinuteOrSecond(String(date.getSeconds()));
+      return getValidMinuteOrSecond(String(new Date(date).getSeconds()));
     case "hours":
-      return getValidHour(String(date.getHours()));
+      return getValidHour(String(new Date(date).getHours()));
     case "12hours":
-      return getValid12Hour(String(display12HourValue(date.getHours())));
+      return getValid12Hour(
+        String(display12HourValue(new Date(date).getHours()))
+      );
     default:
       return "00";
   }

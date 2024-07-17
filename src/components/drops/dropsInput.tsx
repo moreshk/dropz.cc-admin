@@ -8,7 +8,7 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { Switch } from "../ui/switch";
-import { TimePicker12Demo } from "../time-picker/time-picker-12hour-demo";
+import { DateTimePicker } from "../time-picker/date-time-picker";
 
 export const Tokens = ({ isLoading }: { isLoading: boolean }) => {
   const form = useFormContext();
@@ -93,7 +93,7 @@ export const StartTime = () => {
         <FormItem>
           <FormLabel>Start Time</FormLabel>
           <FormControl>
-            <TimePicker12Demo
+            <DateTimePicker
               date={field.value || new Date()}
               setDate={field.onChange}
             />
