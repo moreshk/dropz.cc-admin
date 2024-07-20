@@ -6,7 +6,6 @@ export const tokenSchema = z.object({
   exhausted: z.boolean(),
   maxDuration: z.string(),
   startTime: z.date(),
-  winners: z.string(),
 });
 
 export type TokenSchema = z.infer<typeof tokenSchema>;

@@ -6,13 +6,7 @@ import { axios } from "@/lib/axios";
 import { mutate } from "swr";
 import { Button } from "../ui/button";
 import { WidgetToken } from "../widget/WidgetInput";
-import {
-  Exhausted,
-  MaxDuration,
-  StartTime,
-  Tokens,
-  Winners,
-} from "./dropsInput";
+import { Exhausted, MaxDuration, StartTime, Tokens } from "./dropsInput";
 import { tokenSchema, TokenSchema } from "./dropSchema";
 
 export const AddDrop = ({
@@ -31,7 +25,6 @@ export const AddDrop = ({
       exhausted: false,
       maxDuration: `86400`,
       startTime: new Date(),
-      winners: `11`,
     },
   });
 
@@ -44,7 +37,6 @@ export const AddDrop = ({
         exhausted: drop.exhausted,
         maxDuration: +drop.maxDuration,
         startTime: drop.startTime,
-        winners: +drop.winners,
       });
       onClose();
       mutate("/drop/all");
@@ -61,7 +53,6 @@ export const AddDrop = ({
         <WidgetToken isLoading={isLoading} tokens={tokens} />
         <Tokens isLoading={isLoading} />
         <MaxDuration isLoading={isLoading} />
-        <Winners isLoading={isLoading} />
         <StartTime />
         <Exhausted isLoading={isLoading} />
         <Button type="submit" className="w-full" disabled={isLoading}>
