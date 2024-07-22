@@ -5,7 +5,6 @@ export const tokenSchema = z.object({
   tokens: z.string(),
   exhausted: z.boolean(),
   maxDuration: z.string(),
-  startTime: z.date(),
 });
 
 export type TokenSchema = z.infer<typeof tokenSchema>;
