@@ -35,6 +35,7 @@ export const AddToken = ({ onClose }: { onClose: () => void }) => {
       await axios.post("/token/create", {
         ...token,
         coingeckoId: "",
+        isMoonShot: false,
       });
       onClose();
       mutate("/token");
