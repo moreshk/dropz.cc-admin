@@ -34,6 +34,30 @@ export const Tokens = ({ isLoading }: { isLoading: boolean }) => {
   );
 };
 
+export const Winners = ({ isLoading }: { isLoading: boolean }) => {
+  const form = useFormContext();
+  return (
+    <FormField
+      control={form.control}
+      name="winners"
+      rules={{ required: true }}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>Number of Winners</FormLabel>
+          <FormControl>
+            <Input
+              type="number"
+              {...field}
+              disabled={isLoading || field.disabled}
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  );
+};
+
 export const MaxDuration = ({ isLoading }: { isLoading: boolean }) => {
   const form = useFormContext();
   return (

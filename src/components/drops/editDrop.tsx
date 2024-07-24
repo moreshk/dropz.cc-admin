@@ -7,7 +7,7 @@ import { axios } from "@/lib/axios";
 import { mutate } from "swr";
 import { Button } from "../ui/button";
 import { WidgetToken } from "../widget/WidgetInput";
-import { Exhausted, MaxDuration, Tokens } from "./dropsInput";
+import { Exhausted, MaxDuration, Tokens, Winners } from "./dropsInput";
 
 export const EditDrop = ({
   onClose,
@@ -26,6 +26,7 @@ export const EditDrop = ({
       tokens: `${drop.tokens}`,
       exhausted: drop.exhausted,
       maxDuration: `${drop.maxDuration}`,
+      winners: `${drop.winners}`,
     },
   });
 
@@ -39,6 +40,7 @@ export const EditDrop = ({
         tokens: +updatedDrop.tokens,
         exhausted: updatedDrop.exhausted,
         maxDuration: +updatedDrop.maxDuration,
+        winners: +updatedDrop.winners,
       });
       mutate("/drop/all");
       onClose();
@@ -55,6 +57,7 @@ export const EditDrop = ({
         <Tokens isLoading={isLoading} />
         <MaxDuration isLoading={isLoading} />
         <Exhausted isLoading={isLoading} />
+        <Winners isLoading={isLoading} />
         <Button type="submit" className="w-full" disabled={isLoading}>
           Updat{isLoading ? "ing..." : "e"}
         </Button>
