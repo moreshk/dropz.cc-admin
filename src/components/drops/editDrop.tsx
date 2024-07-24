@@ -40,7 +40,7 @@ export const EditDrop = ({
         tokens: +updatedDrop.tokens,
         exhausted: updatedDrop.exhausted,
         maxDuration: +updatedDrop.maxDuration,
-        winners: +updatedDrop.winners,
+        winner: +updatedDrop.winners,
       });
       mutate("/drop/all");
       onClose();
